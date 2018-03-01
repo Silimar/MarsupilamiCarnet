@@ -1,0 +1,31 @@
+{% extends "Marsupilami/Layout.html.twig" %}
+{% block content %}
+    <div id="card-stats">
+        <div class="row">
+            {% for marsu in marsus %}
+                {% if marsu.username != app.user.username %}
+                    <div class="col s12 m6 l3">
+                        <a href="">
+                            <div class="card">
+                                <div class="card-content orange white-text">
+                                    <br><br>
+                                    <ul>
+                                        <li>{{ marsu.username }}</li>
+                                        <li>{{ marsu.age }}</li>
+                                        <li>{{ marsu.famille }}</li>
+                                        <li>{{ marsu.nourriture }}</li>
+                                    </ul>
+                                    <br><br>
+                                    <a href="{{ path('ajouter',{'idAmi':marsu.id}) }}">
+                                        Ajouter
+                                    </a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}
